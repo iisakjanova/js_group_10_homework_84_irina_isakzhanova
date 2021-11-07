@@ -4,12 +4,14 @@ const mongoose = require('mongoose');
 const exitHook = require('async-exit-hook');
 
 const users = require('./app/users');
+const tasks = require('./app/tasks');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.use('/users', users);
+app.use('/tasks', tasks);
 
 const port = 8000;
 

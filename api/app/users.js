@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
         await user.save();
         res.send(user);
     } catch (e) {
-        return res.sendStatus(500);
+        return res.status(500).send(e.message);
     }
 });
 
@@ -54,16 +54,7 @@ router.post('/sessions', async (req, res) => {
         await user.save();
         res.send({token: user.token});
     } catch (e) {
-        return res.sendStatus(500);
-    }
-});
-
-router.get('/', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.send(users);
-    } catch (e) {
-        res.sendStatus(500);
+        return res.status(500).send(e.message);
     }
 });
 
