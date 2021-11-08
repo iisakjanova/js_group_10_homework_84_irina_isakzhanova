@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     if (!req.body.username || !req.body.password) {
-        return res.status(400).send('Data is not valid');
+        return res.status(400).send({error: 'Data is not valid'});
     }
 
     const userData = {
